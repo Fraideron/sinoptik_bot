@@ -1,0 +1,27 @@
+{
+  "name": "sinoptik-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fraideron/sinoptik_bot.git"
+  },
+  "author": "Valeriy Demidov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fraideron/sinoptik_bot/issues"
+  },
+  "homepage": "https://github.com/Fraideron/sinoptik_bot#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "encoding": "^0.1.12",
+    "mongoose": "^5.4.2",
+    "needle": "^2.2.4",
+    "semaphore-async-await": "^1.5.1",
+    "telegraf": "^3.25.5"
+  }
+}
