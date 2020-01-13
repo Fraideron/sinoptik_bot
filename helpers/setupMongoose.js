@@ -11,9 +11,18 @@ const setupMongoose = () => {
   // Connect to the db
   mongoose.connect(config.MONGO_URL, {
     // DB gets huge, so setting up custom timeouts
+    useNewUrlParser: true,
     socketTimeoutMS: 10000,
     connectTimeoutMS: 50000,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useNewUrlParser: true
   })
+
+  mongoose.connection.on('connected', () => {
+    console.log('MongoDB: started\n')
+  })
+
   // Reconnect on disconnect
   mongoose.connection.on('disconnected', () => {
     mongoose.connect(process.env.MONGO_URL, {
