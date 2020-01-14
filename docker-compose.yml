@@ -6,10 +6,14 @@ services:
     image: mongo
     restart: always
     environment:
+      MONGO_INIT_DATABASE: sinoptik
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 1qa2w3
     ports:
       - 27017:27017
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
 
   mongo-express:
     image: mongo-express

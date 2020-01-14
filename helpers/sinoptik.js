@@ -16,6 +16,7 @@ class Sinoptik {
                 };
                 const $ = cheerio.load(body);
                 const result = $('div.description').text(); 
+                                
                 resolve(result);
             });
         })

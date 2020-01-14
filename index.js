@@ -9,10 +9,16 @@ const helpers = require('./helpers/index');
 const bot = new Telegraf(config.TOKEN);
 helpers.setupMongoose();
 
-db.setupCounter(bot);
+// Initialize wirking with db. From `./models` folder.
+for (let item in db) {
+    db[item](bot);
+}
 
-commands.start(bot);
-commands.onMessage(bot);
+// Initialize telegram bot commands. From `./commands` folder.
+for (let comand in commands) {
+    commands[commands](bot);
+}
+
 
 
 

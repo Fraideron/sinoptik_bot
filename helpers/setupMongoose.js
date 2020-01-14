@@ -15,8 +15,7 @@ const setupMongoose = () => {
     socketTimeoutMS: 10000,
     connectTimeoutMS: 50000,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-    useNewUrlParser: true
+    useCreateIndex: true  
   })
 
   mongoose.connection.on('connected', () => {

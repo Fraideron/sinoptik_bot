@@ -21,22 +21,30 @@ const messageStatsSchema = new Schema(
 const MessageStats = mongoose.model('messageStats', messageStatsSchema)
 
 const countMessage =  async () => {
+  
   const lock = new Lock(1);
   lock.acquire();
   try {
-    const today = dateToEpoch(new Date())
-    let messageStats = await MessageStats.findOne({ date: today })
+
+    const today = dateToEpoch(new Date());
+    let messageStats = await MessageStats.findOne({ date: today });
     if (!messageStats) {
-      messageStats = new MessageStats()
-      messageStats.count = 0
-      messageStats.date = today
+      messageStats = new MessageStats();
+      messageStats.count = 0;
+      messageStats.date = today;
+      console.log('messs11');
+
     }
-    messageStats.count = messageStats.count + 1
-    await messageStats.save()
+
+    messageStats.count = messageStats.count + 1;
+    await messageStats.save();
   } catch(e) {
     // Do nothing
+    console.log(e);
+    console.log('eeeee');
+    
   } finally {
-    lock.release()
+    lock.release();
   }
 }
 
@@ -45,9 +53,9 @@ const dateToEpoch = (date) => {
 }
 
 const setupCounter = (bot) => {
-  bot.use((ctx, next) => {
-    next()
-    countMessage()
+  bot.use((ctx, next) => {    
+    next();
+    countMessage();
   })
 }
 
