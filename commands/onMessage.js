@@ -13,8 +13,7 @@ const onMessage = (bot) => {
             await ctx.deleteMessage(message.message_id);
         }).catch((err) => {
             await ctx.reply(weather || 'Не можем найти указаный город. Попробуйте, ещё раз...');
-        })
-      
+        });
     })
 }
 module.exports = onMessage;
