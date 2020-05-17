@@ -11,6 +11,7 @@ const onMessage = (bot) => {
         const sinoptik = new Sinoptik(city);
         sinoptik.getDescription().then((weather) => {
             await ctx.deleteMessage(message.message_id);
+            await ctx.reply(weather || 'Не можем найти указаный город. Попробуйте, ещё раз...');
         }).catch((err) => {
             await ctx.reply(weather || 'Не можем найти указаный город. Попробуйте, ещё раз...');
         });
