@@ -5,7 +5,7 @@ const onMessage = (bot) => {
         const city = ctx && 
                      ctx.update && 
                      ctx.update.message && 
-                     ctx.update.message.text;
+                     ctx.update.message.text || '';
 
         const message = await ctx.reply('Генерируем описание...)');                                           
         const sinoptik = new Sinoptik(city);
