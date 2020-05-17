@@ -8,11 +8,13 @@ const onMessage = (bot) => {
                      ctx.update.message.text;
 
         const message = await ctx.reply('Генерируем описание...)');                                           
-        console.log(city);        
         const sinoptik = new Sinoptik(city);
-        const weather = await sinoptik.getDescription()
-        await ctx.deleteMessage(message.message_id);
-        await ctx.reply(weather || 'Не можем найти указаный город. Попробуйте, ещё раз...');
+        sinoptik.getDescription().then((weather) => {
+            await ctx.deleteMessage(message.message_id);
+        }).catch((err) => {
+            await ctx.reply(weather || 'Не можем найти указаный город. Попробуйте, ещё раз...');
+        })
+      
     })
 }
 module.exports = onMessage;
