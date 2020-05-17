@@ -53,6 +53,5 @@ const setupCounter = (bot) => {
     countMessage();
   })
 };
-
 // Exports
 module.exports = setupCounter;
