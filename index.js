@@ -15,11 +15,8 @@ for (let item in db) {
 }
 
 // Initialize telegram bot commands. From `./commands` folder.
-for (let comand in commands) {
-    commands[commands](bot);
+for (let command in commands) {
+    commands[command](bot);
 }
 
-
-
-
-bot.startPolling()
+bot.startPolling();

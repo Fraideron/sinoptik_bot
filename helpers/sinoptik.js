@@ -7,6 +7,8 @@ class Sinoptik {
         this.city = city;
     }
 
+
+
     getDescription() {
         return new Promise((resolve, reject) => {
             const link = encodeURIComponent(`погода-${this.city.toLowerCase()}`);

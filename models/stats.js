@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
-const { Lock } = require('semaphore-async-await')
+const mongoose = require('mongoose');
+const { Lock } = require('semaphore-async-await');
 
 // Schema
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 const messageStatsSchema = new Schema(
   {
     date: {
@@ -17,8 +17,8 @@ const messageStatsSchema = new Schema(
     },
   },
   { timestamps: true }
-)
-const MessageStats = mongoose.model('messageStats', messageStatsSchema)
+);
+const MessageStats = mongoose.model('messageStats', messageStatsSchema);
 
 const countMessage =  async () => {
   
@@ -46,18 +46,18 @@ const countMessage =  async () => {
   } finally {
     lock.release();
   }
-}
+};
 
 const dateToEpoch = (date) => {
   return date.setHours(0, 0, 0, 0)
-}
+};
 
 const setupCounter = (bot) => {
   bot.use((ctx, next) => {    
     next();
     countMessage();
   })
-}
+};
 
 // Exports
 module.exports = setupCounter;
