@@ -9,7 +9,7 @@ const setupMongoose = () => {
   // Setup bluebird as a promise engine
   mongoose.Promise = global.Promise
   // Connect to the db
-  mongoose.connect(config.MONGO_URL, {
+  mongoose.connect(config.MONGO_URL_PROD, {
     // DB gets huge, so setting up custom timeouts
     useNewUrlParser: true,
     socketTimeoutMS: 10000,
