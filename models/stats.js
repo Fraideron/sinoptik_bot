@@ -32,17 +32,12 @@ const countMessage =  async () => {
       messageStats = new MessageStats();
       messageStats.count = 0;
       messageStats.date = today;
-      console.log('messs11');
-
     }
 
     messageStats.count = messageStats.count + 1;
     await messageStats.save();
   } catch(e) {
     // Do nothing
-    console.log(e);
-    console.log('eeeee');
-    
   } finally {
     lock.release();
   }
