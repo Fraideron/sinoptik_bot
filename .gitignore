@@ -1,5 +1,6 @@
 .idea
 mongo-volume
+node_modules
 
 # Logs
 logs
