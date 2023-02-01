@@ -20,7 +20,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "encoding": "^0.1.12",
-    "mongoose": "^5.8.7",
+    "mongoose": "^5.13.15",
     "needle": "^2.2.4",
     "semaphore-async-await": "^1.5.1",
     "telegraf": "^3.25.5"
